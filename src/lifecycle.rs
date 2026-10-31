@@ -97,6 +97,7 @@ fn writer_opened(id: &str, db: &Db) {
 fn writer_closed(id: &str) {
     OPEN_WRITERS.lock().unwrap().remove(id);
     WRITER_DBS.lock().unwrap().remove(id);
+    UNFLUSHED_SINCE.lock().unwrap().remove(id);
 }
 
 /// Tenants written recently, for the WAL-only garbage collection of open writers (see `Maintenance`).
@@ -168,6 +169,81 @@ pub fn install_shared_cache(block_bytes: u64, meta_bytes: u64) {
     let _ = DB_CACHE.set(Arc::new(split));
 }
 
+/// Keep the data blocks of the L0 SSTs a writer flushes in the shared block cache (`--cache-flushed-blocks`, slatedb's
+/// default). Off by default: measured (mem-growth branch), those blocks were the second largest share of the memory that
+/// grew with the writes and stayed after the close, up to the whole block cache: a new cache scope per open means a
+/// closed database's blocks are never read again, they only age out once the cache is full. A block is still cached
+/// when it is read; the index and filter blocks of a flushed SST are still cached on flush.
+pub static CACHE_FLUSHED_BLOCKS: std::sync::atomic::AtomicBool = std::sync::atomic::AtomicBool::new(false);
+
+fn flush_cache_policy() -> slatedb::BlockCachePolicy {
+    let p = slatedb::BlockCachePolicy::default();
+    if CACHE_FLUSHED_BLOCKS.load(std::sync::atomic::Ordering::Relaxed) {
+        p
+    } else {
+        p.with_flush_targets(&[slatedb::CacheTarget::Index, slatedb::CacheTarget::Filters])
+    }
+}
+
+/// Oldest write of each open writer that may still be only in its memtable: (its sequence number, when the memtable is
+/// due for a flush). Set by the first write after the memtable was last flushed; see `MEMTABLE_MAX_AGE_SECS`.
+static UNFLUSHED_SINCE: std::sync::LazyLock<Mutex<HashMap<String, (u64, Instant)>>> = std::sync::LazyLock::new(Default::default);
+/// A writer flushes its memtable to an L0 SST once its oldest unflushed write is this old (seconds, 0 = never;
+/// `--memtable-max-age-secs`). slatedb flushes a memtable only when it is full (`--memtable-max-mb`) or after 4096 WAL
+/// flushes, so a database written slowly kept every write in memory for up to ~34 minutes at 2 writes/s, and its
+/// memtable was the largest share of the memory that grew with the writes (mem-growth branch). A database written fast
+/// fills its memtable long before this age, so the rule never fires for it; a slow one gets at most one more L0 SST
+/// (one PUT and one manifest update) per interval.
+pub static MEMTABLE_MAX_AGE_SECS: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(600);
+/// Memtable flushes started because of `MEMTABLE_MAX_AGE_SECS`.
+pub static MEMTABLE_AGE_FLUSHES: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(0);
+
+fn note_unflushed(id: &str, seq: u64) {
+    if MEMTABLE_MAX_AGE_SECS.load(std::sync::atomic::Ordering::Relaxed) == 0 {
+        return;
+    }
+    let mut m = UNFLUSHED_SINCE.lock().unwrap();
+    if !m.contains_key(id) {
+        // Due between 3/4 of the age and the age: databases opened together do not all flush at the same moment (measured:
+        // 50 databases flushing at once raised the RSS by ~40 MB for a minute).
+        let age = Duration::from_secs(MEMTABLE_MAX_AGE_SECS.load(std::sync::atomic::Ordering::Relaxed));
+        let due = Instant::now() + age.mul_f64(0.75 + 0.25 * rand::random::<f64>());
+        m.insert(id.to_string(), (seq, due));
+    }
+}
+
+/// Flush the memtables whose oldest unflushed write is older than `MEMTABLE_MAX_AGE_SECS` (called every few seconds by
+/// the maintenance loop). A writer whose manifest already records an L0 flush past that write is just forgotten.
+fn flush_old_memtables() {
+    let max = MEMTABLE_MAX_AGE_SECS.load(std::sync::atomic::Ordering::Relaxed);
+    if max == 0 {
+        return;
+    }
+    let now = Instant::now();
+    let dbs = WRITER_DBS.lock().unwrap();
+    let mut due = Vec::new();
+    UNFLUSHED_SINCE.lock().unwrap().retain(|id, (seq, at)| {
+        let Some(db) = dbs.get(id) else { return false };
+        if db.manifest().last_l0_seq() >= *seq {
+            return false;
+        }
+        if now >= *at {
+            due.push((id.clone(), db.clone()));
+            return false;
+        }
+        true
+    });
+    drop(dbs);
+    for (id, db) in due {
+        MEMTABLE_AGE_FLUSHES.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+        tokio::spawn(async move {
+            if let Err(e) = db.flush_with_options(slatedb::config::FlushOptions { flush_type: slatedb::config::FlushType::MemTable }).await {
+                eprintln!("memtable flush (age) of tenant {id}: {e}");
+            }
+        });
+    }
+}
+
 fn cache_scope() -> Option<(Arc<dyn slatedb::db_cache::DbCache>, u64)> {
     DB_CACHE.get().map(|c| (Arc::clone(c), CACHE_SCOPE.fetch_add(1, std::sync::atomic::Ordering::Relaxed)))
 }
@@ -207,7 +283,7 @@ fn writer_builder(id: &str, store: &Arc<dyn ObjectStore>) -> slatedb::DbBuilder<
         // Durable writes flush explicitly; the periodic flush only has to bound the relaxed ones.
         settings.flush_interval = Some(relaxed);
     }
-    let b = Db::builder(tenant_path(id), Arc::clone(store)).with_settings(settings);
+    let b = Db::builder(tenant_path(id), Arc::clone(store)).with_settings(settings).with_block_cache_policy(flush_cache_policy());
     match cache_scope() {
         Some((c, scope)) => b.with_db_cache(c, scope),
         None => b,
@@ -771,6 +847,7 @@ impl Tenant {
             }
         }
         let handle = db.write(batch).await?;
+        note_unflushed(&self.id, handle.seqnum());
         self.group.staged_seq.fetch_max(handle.seqnum(), std::sync::atomic::Ordering::Release);
         Ok(Some(Commit { db: db.clone(), handle, group: Arc::clone(&self.group), tenant: self.id.clone(), local: None }))
     }
@@ -1458,6 +1535,7 @@ impl Maintenance {
             tokio::spawn(async move {
                 while !stop.load(std::sync::atomic::Ordering::Relaxed) {
                     tokio::time::sleep(Duration::from_secs(2)).await;
+                    flush_old_memtables();
                     let due: Vec<String> = {
                         let mut t = touched.lock().unwrap();
                         let open = OPEN_WRITERS.lock().unwrap();

@@ -94,6 +94,34 @@ The WAL cleanup of open writers (`--wal-gc-mode bulk`, the default) no longer fa
 retention window: it deletes the WAL objects below the oldest checkpoint (restore points are checkpoints) and below the
 writer's replay boundary, using the writer's own view of the manifest. A pass with nothing to delete makes no request.
 
+### Memory per write (mem-growth)
+
+Details and measurements: `results-mem-growth.md`. Four changes, each measured on MinIO with 50 databases at 2 writes/s:
+
+* **jemalloc** is the allocator (with `background_thread`, so freed pages go back to the system while the process is idle).
+  With the system allocator the process held ~4.5-5.5 KB of RSS per 1 KB write for ~1.5 KB of live heap, and gave nothing
+  back when the databases closed. `serverStatus` reports the live heap as `mem.heapAllocatedBytes` and what the allocator
+  holds as `mem.heapResidentBytes`.
+* `--memtable-max-age-secs` (new, default **600**): a writer flushes its memtable to an L0 SST once its oldest unflushed
+  write is that old (each database between 3/4 of the age and the age, so databases opened together do not flush at the
+  same moment). slatedb flushed a memtable only when full or after 4096 WAL flushes (~34 minutes at 2 writes/s). A database
+  written fast fills its memtable first and is not affected; a slow one gets at most one more L0 SST per interval. 0 = off.
+* `--cache-flushed-blocks` (new, default **false**): the data blocks of the L0 SSTs a writer flushes are no longer put in
+  the shared block cache (index and filter blocks still are). They filled the cache with data nobody had read, and after
+  the database closed they could never be read again (new cache scope per open). Blocks are still cached when read.
+  `true` goes back to slatedb's behaviour.
+* `--cursor-timeout-secs` (new, default **600**, mongod's `cursorTimeoutMillis`): a cursor that no `getMore` used for that
+  long is closed and its buffered results freed (`serverStatus` `metrics.cursor.timedOut`). Before, an abandoned cursor stayed
+  until the process stopped. A `find` with `noCursorTimeout: true` is closed after 30 minutes idle (mongod's session timeout).
+  0 = never.
+
+Regression test: `ctl-tests/test_27_memory_per_write.py` (fails when the live heap or the RSS grows by more than 0.5 / 0.8 KB
+per write once the bounded structures are full, when the heap does not come back after the databases close, or when idle
+cursors are not closed). Measurement scripts: `tools/mem/memcheck.py` (memory per write and after the close),
+`tools/mem/perdb.py` (memory per open database). Measurement build with jemalloc's heap profiler:
+`cargo build --release -p mongo-server --features heap-prof`, then `_RJEM_MALLOC_CONF=prof:true HEAP_PROF_DUMP_SECS=60
+HEAP_PROF_PREFIX=/tmp/h` and `jeprof --base`.
+
 ### Open files: `LimitNOFILE`
 
 Each client connection is one file descriptor; the engine itself holds a few dozen (listeners, the S3 connection pool, the

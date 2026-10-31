@@ -1,0 +1,1 @@
+BEFORE: open 0->40->40 after 700 s; RSS MB 38.7->65.7->68.4; first cursor still usable: True

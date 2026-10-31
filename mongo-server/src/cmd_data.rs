@@ -149,7 +149,11 @@ impl Server {
             }
         }
         let limited = limit > 0 && docs.len() >= limit as usize;
-        Ok(self.cursor_reply_open(format!("{db}.{coll}"), docs, batch, single, limited))
+        let reply = self.cursor_reply_open(format!("{db}.{coll}"), docs, batch, single, limited);
+        if matches!(cmd.get("noCursorTimeout"), Some(Bson::Boolean(true))) {
+            self.mark_no_cursor_timeout(&reply);
+        }
+        Ok(reply)
     }
 
     /// `find` with `tailable`: only a capped collection has a natural order that new documents are added to. The cursor

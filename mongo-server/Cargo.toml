@@ -40,3 +40,9 @@ icu_locale = "2"
 flate2 = { version = "1", default-features = false, features = ["rust_backend"] }
 snap = "1"
 zstd = "0.13"
+tikv-jemallocator = { version = "=0.6.0", features = ["stats"] }
+tikv-jemalloc-ctl = { version = "=0.6.0", features = ["stats"] }
+
+[features]
+# Measurement builds only: jemalloc's heap profiler (`_RJEM_MALLOC_CONF=prof:true,...` and HEAP_PROF_DUMP_SECS, see main.rs).
+heap-prof = ["tikv-jemallocator/profiling"]
