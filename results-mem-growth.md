@@ -135,7 +135,12 @@ Il residuo di 0,185 KB per scrittura nel test, guardato col profilatore: buffer 
 in volo al momento del campione e blocchi letti dalle compattazioni (cache limitata), non una struttura che cresce con le
 scritture (**MISURATO**, 7,4 MB in ~36.000 scritture).
 
-CTL_PLACEHOLDER
+Seconda esecuzione del test, dentro la suite completa: 0,208 KB di heap e 0,25 KB di RSS per scrittura, passa
+(**MISURATO**). Uscite: `results-mem-growth/test_27_runs.txt`.
+
+**Suite esistente.** Tutti i 38 file di `ctl-tests` sul binario corretto: tutti passano; `test_04b_export_vs_real_mongo` è
+saltato perché richiede un mongod di riferimento, che qui non c'è (`results-mem-growth/ctl-suite-summary.txt`). Le suite
+differenziali contro mongod (`mongo-tests`) non le ho eseguite: richiedono i mongod di riferimento in docker.
 
 ## 6. Proposta: tetto globale di memoria con conto per database (non implementata)
 
