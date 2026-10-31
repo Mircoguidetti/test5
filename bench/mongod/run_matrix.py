@@ -19,7 +19,7 @@ import argparse, json, os, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BIN = os.environ.get("BENCH_BIN", os.path.join(HERE, ".bin"))
-RES = os.path.join(HERE, "results")
+RES = os.environ.get("BENCH_RESULTS", os.path.join(HERE, "results"))
 RAW = os.path.join(RES, "raw.jsonl")
 NCPU = os.cpu_count()
 LAYOUTS = {1: (1, 200_000), 100: (100, 2_000)}

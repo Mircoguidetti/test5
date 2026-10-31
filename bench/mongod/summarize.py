@@ -2,7 +2,7 @@
 """Reads results/raw.jsonl and prints, per cell, the median of the full runs (and the sweep), as plain text."""
 import json, os, statistics as st, sys
 from collections import defaultdict
-RAW = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results", "raw.jsonl")
+RAW = os.path.join(os.environ.get("BENCH_RESULTS", os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")), "raw.jsonl")
 recs = [json.loads(l) for l in open(RAW) if l.strip()]
 full, sweep = defaultdict(list), defaultdict(list)
 for r in recs:
