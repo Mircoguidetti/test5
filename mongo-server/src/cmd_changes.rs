@@ -24,6 +24,8 @@ pub enum BeforeDoc {
 }
 
 pub struct ChangeCursor {
+    /// Last time the cursor was created or used by a getMore (idle cursors are closed, see `cmd::CURSOR_TIMEOUT_SECS`).
+    pub used: Instant,
     pub scope: Scope,
     pub last: u64,
     pub rest: Vec<Bson>,
@@ -108,7 +110,7 @@ impl Server {
                 rest_stages.pop();
             }
         }
-        let cur = ChangeCursor { scope, last: start, rest: rest_stages, full, before, expanded, ns: ns.clone(), closed: false };
+        let cur = ChangeCursor { used: Instant::now(), scope, last: start, rest: rest_stages, full, before, expanded, ns: ns.clone(), closed: false };
         let id = self.store_change_cursor(cur);
         let _ = batch;
         Ok(doc! { "cursor": { "firstBatch": Vec::<Bson>::new(), "postBatchResumeToken": { "_data": log.token(start) }, "id": id, "ns": ns }, "ok": 1.0 })
@@ -286,6 +288,7 @@ impl Server {
         let ns = cur.ns.clone();
         let next_id = if closing { 0 } else { id };
         if !closing {
+            cur.used = Instant::now();
             self.change_cursors.lock().unwrap().insert(id, cur);
         }
         Ok(doc! { "cursor": { "nextBatch": out.into_iter().map(Bson::Document).collect::<Vec<_>>(), "postBatchResumeToken": { "_data": token }, "id": next_id, "ns": ns }, "ok": 1.0 })

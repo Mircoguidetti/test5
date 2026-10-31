@@ -1,0 +1,652 @@
+Total: 38.2 MB
+    38.4 100.6% 100.6%     38.4 100.6% prof_backtrace_impl /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/src/prof_sys.c:103
+     1.2   3.1% 103.7%      1.2   3.1% alloc::boxed::box_new_uninit (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:107
+     0.3   0.7% 104.4%      0.3   0.7% tokio::task::spawn::spawn:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:107
+     0.1   0.3% 104.7%      0.1   0.3% mongo_server::handle_connection_inner::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:117
+     0.1   0.3% 105.1%      0.1   0.3% ::allocate (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      0.0   0.0% ::push (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:117
+     0.0   0.0% 105.1%      0.1   0.3% ::add_source:: /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/io/driver.rs:290
+     0.0   0.0% 105.1%      0.1   0.3% ::advance_block::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_iter.rs:655
+     0.0   0.0% 105.1%     -1.1  -2.9% ::alloc_impl (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:332
+     0.0   0.0% 105.1%     -1.1  -2.9% ::alloc_impl_runtime (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:210
+     0.0   0.0% 105.1%     -1.1  -2.9% ::allocate (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:449
+     0.0   0.0% 105.1%     -6.5 -17.0% ::apply_mode::{closure#0} (inline) /home/user/fenvix-engine/src/lifecycle.rs:845
+     0.0   0.0% 105.1%      0.1   0.3% ::apply_mode::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db.rs:300
+     0.0   0.0% 105.1%     -6.4 -16.7% ::apply_mode::{closure#0} /home/user/fenvix-engine/mongo-server/src/dbs.rs:640
+     0.0   0.0% 105.1%      0.1   0.3% ::begin /home/user/fenvix-engine/mongo-server/src/diag.rs:231
+     0.0   0.0% 105.1%      3.2   8.3% ::block_loader::{closure#0}::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_io.rs:95
+     0.0   0.0% 105.1%      0.1   0.3% ::block_loader::{closure#0}::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      3.2   8.3% ::block_loader::{closure#0}::{closure#0}::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:1008
+     0.0   0.0% 105.1%      0.3   0.7% ::block_on:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%      0.1   0.3% ::call::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/time/timeout.rs:216
+     0.0   0.0% 105.1%      0.1   0.3% ::call::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -0.1  -0.4% ::call::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/client/http/connection.rs:229
+     0.0   0.0% 105.1%     -0.1  -0.4% ::call::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-0.13.5/src/async_impl/client.rs:156
+     0.0   0.0% 105.1%     37.9  99.3% ::call_once (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/boxed.rs:2275
+     0.0   0.0% 105.1%      0.3   0.7% ::call_once (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/ops/function.rs:287
+     0.0   0.0% 105.1%     37.9  99.3% ::call_once::{shim:vtable#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/thread/lifecycle.rs:70
+     0.0   0.0% 105.1%      2.4   6.3% ::clamp_allocated_size (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flatbuffer_types.rs:103
+     0.0   0.0% 105.1%      0.5   1.3% ::clamp_allocated_size (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_iter.rs:33
+     0.0   0.0% 105.1%      0.5   1.3% ::clamp_allocated_size /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/filter.rs:195
+     0.0   0.0% 105.1%     -0.3  -0.7% ::clone (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/table.rs:1639
+     0.0   0.0% 105.1%      0.1   0.3% ::clone (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/map.rs:111
+     0.0   0.0% 105.1%     -1.5  -3.9% ::clone (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:800
+     0.0   0.0% 105.1%     -1.1  -2.9% ::clone (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:3808
+     0.0   0.0% 105.1%     -1.2  -3.2% ::clone (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:3834
+     0.0   0.0% 105.1%     -1.4  -3.6% ::clone /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/bson.rs:48
+     0.0   0.0% 105.1%     -1.1  -2.9% ::clone /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/string.rs:2365
+     0.0   0.0% 105.1%     -0.3  -0.7% ::clone_from (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:105
+     0.0   0.0% 105.1%      0.3   0.7% ::clone_into (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/lib.rs:161
+     0.0   0.0% 105.1%      3.0   8.0% ::close::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:1154
+     0.0   0.0% 105.1%      3.0   8.0% ::close::{closure#0}::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -6.4 -16.7% ::commit::{closure#0} (inline) /home/user/fenvix-engine/mongo-server/src/dbs.rs:593
+     0.0   0.0% 105.1%     -0.5  -1.3% ::commit::{closure#0} /home/user/fenvix-engine/mongo-server/src/cmd_data.rs:604
+     0.0   0.0% 105.1%      0.1   0.3% ::connect::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/net/tcp/stream.rs:148
+     0.0   0.0% 105.1%      0.1   0.3% ::connect_with_maybe_proxy::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -6.3 -16.4% ::copy_from_slice (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      0.3   0.7% ::decode (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flatbuffer_types.rs:383
+     0.0   0.0% 105.1%      0.1   0.3% ::decode (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/seq_tracker.rs:194
+     0.0   0.0% 105.1%      0.1   0.3% ::decode (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_iter.rs:33
+     0.0   0.0% 105.1%      0.3   0.7% ::decode /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/filter.rs:104
+     0.0   0.0% 105.1%      0.3   0.7% ::decode /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/filter_policy.rs:317
+     0.0   0.0% 105.1%     10.2  26.7% ::decode:: /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/decode.rs:156
+     0.0   0.0% 105.1%      0.3   0.7% ::decode_composite_filter_block /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:788
+     0.0   0.0% 105.1%      0.3   0.7% ::decode_lsm_tree_v2 (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/result.rs:2156
+     0.0   0.0% 105.1%      3.8  10.0% ::dedup_fetch::{closure#0}::{closure#0}::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%      1.2   3.1% ::dispatch::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/boxed.rs:286
+     0.0   0.0% 105.1%     -9.6 -25.2% ::dispatch::{closure#0} /home/user/fenvix-engine/mongo-server/src/cmd.rs:263
+     0.0   0.0% 105.1%     -9.7 -25.5% ::dispatch_commands::{closure#0} (inline) /home/user/fenvix-engine/mongo-server/src/collation.rs:137
+     0.0   0.0% 105.1%      0.1   0.3% ::dispatch_commands::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/map.rs:111
+     0.0   0.0% 105.1%     -0.1  -0.3% ::do_flush::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/writer.rs:485
+     0.0   0.0% 105.1%     -0.1  -0.3% ::do_flush_one_wal::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -0.3  -0.7% ::do_put::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/aws/client.rs:486
+     0.0   0.0% 105.1%      0.1   0.3% ::doc_of (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.229/src/ser/impls.rs:472
+     0.0   0.0% 105.1%      0.1   0.3% ::fallible_with_capacity:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     -0.1  -0.3% ::find_block (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      0.1   0.3% ::finish (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     -1.5  -3.9% ::finish_grow (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:105
+     0.0   0.0% 105.1%      3.0   8.0% ::finish_grow (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     10.5  27.4% ::finish_grow (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:155
+     0.0   0.0% 105.1%     -0.1  -0.3% ::flush::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db.rs:451
+     0.0   0.0% 105.1%     -1.1  -2.8% ::freeze_memtable (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/mem_table.rs:135
+     0.0   0.0% 105.1%     -1.0  -2.6% ::from_iter (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:436
+     0.0   0.0% 105.1%      0.5   1.3% ::from_iter (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_cache/mod.rs:518
+     0.0   0.0% 105.1%     -0.1  -0.3% ::from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      0.5   1.3% ::from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/mod.rs:195
+     0.0   0.0% 105.1%      0.3   0.7% ::from_iter:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/map.rs:452
+     0.0   0.0% 105.1%      0.0   0.0% ::from_iter:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/mod.rs:195
+     0.0   0.0% 105.1%      0.5   1.3% ::from_iter_exact:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      3.4   9.0% ::get_opts::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%      3.4   9.0% ::get_opts::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/retrying_object_store.rs:368
+     0.0   0.0% 105.1%      3.8  10.0% ::get_or_fetch::::{closure#1}::{closure#0}::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:1044
+     0.0   0.0% 105.1%      0.1   0.3% ::get_request::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%      0.1   0.3% ::grow_one (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:528
+     0.0   0.0% 105.1%     -0.6  -1.6% ::handle::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:191
+     0.0   0.0% 105.1%     -1.1  -2.8% ::handle::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:383
+     0.0   0.0% 105.1%     -0.3  -0.7% ::handle::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/memtable_flusher/manifest_writer.rs:645
+     0.0   0.0% 105.1%      3.0   8.0% ::handle::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/memtable_flusher/uploader.rs:267
+     0.0   0.0% 105.1%     -0.0  -0.0% ::handle::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/writer.rs:552
+     0.0   0.0% 105.1%      0.5   1.3% ::handle_target /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:1482
+     0.0   0.0% 105.1%      0.1   0.3% ::init::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_iter.rs:734
+     0.0   0.0% 105.1%      0.1   0.3% ::insert (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:602
+     0.0   0.0% 105.1%      0.1   0.3% ::insert (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:914
+     0.0   0.0% 105.1%      0.1   0.3% ::insert (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/collections/btree/map/entry.rs:360
+     0.0   0.0% 105.1%      3.0   8.0% ::insert::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -2.9  -7.5% ::insert::{closure#0} /home/user/fenvix-engine/mongo-server/src/cmd_data.rs:684
+     0.0   0.0% 105.1%     -6.9 -18.0% ::insert::{closure#0} /home/user/fenvix-engine/mongo-server/src/cmd_data.rs:704
+     0.0   0.0% 105.1%      0.1   0.3% ::insert::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_cache/foyer.rs:121
+     0.0   0.0% 105.1%      3.0   8.0% ::insert::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_cache/mod.rs:614
+     0.0   0.0% 105.1%      0.1   0.3% ::insert_entry (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:105
+     0.0   0.0% 105.1%      0.3   0.7% ::insert_full (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/inner.rs:344
+     0.0   0.0% 105.1%      0.1   0.3% ::insert_inner (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/indexer/sentry.rs:64
+     0.0   0.0% 105.1%      0.4   1.0% ::insert_internal:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      0.5   1.3% ::insert_with_properties_inner (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      0.1   0.3% ::listen (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      0.1   0.3% ::load_iterators::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/compactor_executor.rs:388
+     0.0   0.0% 105.1%     31.4  82.3% ::maybe_notify /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/conn.rs:543
+     0.0   0.0% 105.1%     -1.0  -2.5% ::new (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/seq_tracker.rs:65
+     0.0   0.0% 105.1%      0.1   0.3% ::new (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/io/poll_evented.rs:120
+     0.0   0.0% 105.1%     -1.0  -2.6% ::new:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:3926
+     0.0   0.0% 105.1%     37.9  99.3% ::new::thread_start /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/sys/thread/unix.rs:118
+     0.0   0.0% 105.1%      0.1   0.3% ::new::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db.rs:2184
+     0.0   0.0% 105.1%      0.1   0.3% ::new_with_interest_and_handle:: /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/io/registration.rs:78
+     0.0   0.0% 105.1%      0.1   0.3% ::notify_listener /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/writer.rs:531
+     0.0   0.0% 105.1%     -8.6 -22.4% ::poll (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:211
+     0.0   0.0% 105.1%     -0.1  -0.3% ::poll (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:239
+     0.0   0.0% 105.1%     -9.6 -25.2% ::poll (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:305
+     0.0   0.0% 105.1%      0.1   0.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-strategy-0.5.4/src/lib.rs:388
+     0.0   0.0% 105.1%     42.0 110.0% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-core-0.3.34/src/future.rs:92
+     0.0   0.0% 105.1%     -0.1  -0.4% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/either.rs:108
+     0.0   0.0% 105.1%      0.1   0.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/future/catch_unwind.rs:37
+     0.0   0.0% 105.1%     -0.0  -0.0% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/future/mod.rs:556
+     0.0   0.0% 105.1%     41.8 109.4% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/lib.rs:85
+     0.0   0.0% 105.1%      0.8   2.0% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/stream/stream/mod.rs:1637
+     0.0   0.0% 105.1%     41.7 109.0% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/dispatch.rs:504
+     0.0   0.0% 105.1%      0.1   0.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/compactor_executor.rs:793
+     0.0   0.0% 105.1%      0.1   0.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/dispatcher.rs:309
+     0.0   0.0% 105.1%      0.1   0.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:998
+     0.0   0.0% 105.1%      0.1   0.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_io.rs:95
+     0.0   0.0% 105.1%      0.1   0.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/utils.rs:498
+     0.0   0.0% 105.1%     37.9  99.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/worker.rs:506
+     0.0   0.0% 105.1%     -5.1 -13.2% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/core.rs:380
+     0.0   0.0% 105.1%     37.9  99.3% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/harness.rs:537
+     0.0   0.0% 105.1%     -8.4 -22.1% ::poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/task/task_local.rs:401
+     0.0   0.0% 105.1%     46.8 122.5% ::poll (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -8.6 -22.4% ::poll /home/user/fenvix-engine/mongo-server/src/fair.rs:278
+     0.0   0.0% 105.1%      0.5   1.3% ::poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:1218
+     0.0   0.0% 105.1%      0.1   0.3% ::poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/join.rs:55
+     0.0   0.0% 105.1%     -0.1  -0.4% ::poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-0.13.5/src/async_impl/client.rs:3114
+     0.0   0.0% 105.1%     25.1  65.7% ::poll_catch (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/dispatch.rs:247
+     0.0   0.0% 105.1%     16.5  43.3% ::poll_catch (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/dispatch.rs:311
+     0.0   0.0% 105.1%      0.6   1.6% ::poll_next (inline) /home/user/fenvix-engine/src/lifecycle.rs:1252
+     0.0   0.0% 105.1%      0.1   0.3% ::poll_next (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     14.9  39.0% ::poll_read_body (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/conn.rs:572
+     0.0   0.0% 105.1%     10.2  26.7% ::poll_read_body /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/conn.rs:373
+     0.0   0.0% 105.1%     14.9  39.0% ::poll_read_body /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/conn.rs:427
+     0.0   0.0% 105.1%     41.7 109.0% ::poll_read_from_io (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytes-1.12.1/src/bytes_mut.rs:621
+     0.0   0.0% 105.1%     16.5  43.3% ::poll_read_head (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/conn.rs:572
+     0.0   0.0% 105.1%      0.1   0.3% ::poll_with_strategy:: /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/async-channel-2.5.0/src/lib.rs:1314
+     0.0   0.0% 105.1%     -0.5  -1.3% ::publish (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:105
+     0.0   0.0% 105.1%      0.3   0.7% ::push_entry (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:800
+     0.0   0.0% 105.1%      0.4   1.0% ::put (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-skiplist-0.1.3/src/base.rs:1114
+     0.0   0.0% 105.1%     -0.4  -1.0% ::put:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:190
+     0.0   0.0% 105.1%     -3.1  -8.2% ::put::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/map.rs:111
+     0.0   0.0% 105.1%     -2.9  -7.5% ::put::{closure#0} /home/user/fenvix-engine/mongo-server/src/coll.rs:1103
+     0.0   0.0% 105.1%      0.1   0.3% ::put_opts (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     -0.1  -0.3% ::put_opts::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -0.3  -0.7% ::put_opts::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/aws/mod.rs:261
+     0.0   0.0% 105.1%     -0.1  -0.3% ::put_opts::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/lib.rs:1331
+     0.0   0.0% 105.1%     -0.1  -0.3% ::put_opts::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/retrying_object_store.rs:406
+     0.0   0.0% 105.1%      3.0   8.0% ::read_blocks::::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:953
+     0.0   0.0% 105.1%      0.1   0.3% ::read_blocks::::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:976
+     0.0   0.0% 105.1%      0.1   0.3% ::read_index::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:537
+     0.0   0.0% 105.1%      0.1   0.3% ::read_index_inner::{closure#0}::{closure#0}::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:806
+     0.0   0.0% 105.1%      0.5   1.4% ::read_loader::{closure#0}::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_io.rs:95
+     0.0   0.0% 105.1%      0.3   0.7% ::read_loader::{closure#0}::{closure#0}::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:741
+     0.0   0.0% 105.1%      0.3   0.7% ::read_loader::{closure#0}::{closure#0}::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:806
+     0.0   0.0% 105.1%      0.6   1.6% ::read_manifest::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/admin.rs:85
+     0.0   0.0% 105.1%     10.2  26.7% ::read_mem /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/io.rs:366
+     0.0   0.0% 105.1%      3.4   9.0% ::read_range::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -0.3  -0.7% ::refresh::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -0.1  -0.3% ::request_batch_writer_flush::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:396
+     0.0   0.0% 105.1%     10.2  26.7% ::reserve::do_reserve_and_handle:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:528
+     0.0   0.0% 105.1%     31.4  82.3% ::reserve_inner (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     10.2  26.7% ::reserve_inner (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:675
+     0.0   0.0% 105.1%      0.1   0.3% ::reserve_rehash:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:2696
+     0.0   0.0% 105.1%     -9.7 -25.5% ::route::{closure#0} /home/user/fenvix-engine/mongo-server/src/cmd.rs:432
+     0.0   0.0% 105.1%     37.9  99.3% ::run (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/raw.rs:267
+     0.0   0.0% 105.1%     37.9  99.3% ::run /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/stats.rs:?
+     0.0   0.0% 105.1%      1.1   2.8% ::run_lifecycle::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/future/catch_unwind.rs:37
+     0.0   0.0% 105.1%     37.9  99.3% ::run_task (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/raw.rs:267
+     0.0   0.0% 105.1%     -0.1  -0.3% ::send /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/utils.rs:777
+     0.0   0.0% 105.1%     -0.3  -0.7% ::send::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -0.3  -0.7% ::send::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/aws/client.rs:478
+     0.0   0.0% 105.1%     -0.0  -0.0% ::send_request::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/client.rs:422
+     0.0   0.0% 105.1%     -0.1  -0.3% ::send_request::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/sync/mpsc/list.rs:86
+     0.0   0.0% 105.1%      0.1   0.3% ::serialize:: /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.154/src/value/ser.rs:28
+     0.0   0.0% 105.1%      0.1   0.3% ::serialize_entry:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.154/src/map.rs:138
+     0.0   0.0% 105.1%     37.9  99.3% ::set:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/worker.rs:560
+     0.0   0.0% 105.1%      0.1   0.3% ::set_next_wal_id (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_state.rs:877
+     0.0   0.0% 105.1%      0.6   1.6% ::start::{closure#1} /home/user/fenvix-engine/src/lifecycle.rs:1614
+     0.0   0.0% 105.1%     -1.1  -2.9% ::to_vec:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/slice.rs:448
+     0.0   0.0% 105.1%     -1.1  -2.9% ::to_vec_in:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/slice.rs:400
+     0.0   0.0% 105.1%     -1.1  -2.9% ::try_allocate_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:465
+     0.0   0.0% 105.1%     -0.1  -0.3% ::try_fold:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      0.5   1.3% ::try_fold:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/sync.rs:4195
+     0.0   0.0% 105.1%      0.0   0.0% ::try_fold:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/convert/mod.rs:820
+     0.0   0.0% 105.1%      0.1   0.3% ::try_from (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/traits/iterator.rs:2090
+     0.0   0.0% 105.1%     -0.3  -0.7% ::try_read_latest::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%     -0.3  -0.7% ::try_read_latest_unchecked::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-txn-obj-0.17.0/src/object_store.rs:415
+     0.0   0.0% 105.1%      0.6   1.6% ::try_read_manifest::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%      0.6   1.6% ::try_read_unchecked::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-txn-obj-0.17.0/src/object_store.rs:469
+     0.0   0.0% 105.1%     -0.1  -0.3% ::try_send (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/concurrent-queue-2.5.0/src/lib.rs:201
+     0.0   0.0% 105.1%      3.0   8.0% ::upload_with_retry::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flush.rs:129
+     0.0   0.0% 105.1%     -0.1  -0.3% ::wait::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db.rs:1777
+     0.0   0.0% 105.1%     -1.1  -2.9% ::with_capacity_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:177
+     0.0   0.0% 105.1%     -1.1  -2.9% ::with_capacity_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:434
+     0.0   0.0% 105.1%     -1.1  -2.9% ::with_capacity_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:977
+     0.0   0.0% 105.1%     -1.0  -2.5% ::with_config (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     -1.0  -2.6% ::write_batch::{closure#0}::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:317
+     0.0   0.0% 105.1%     -1.0  -2.6% ::write_batch::{closure#0}::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:240
+     0.0   0.0% 105.1%      0.4   1.0% ::write_batch::{closure#0}::{closure#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:265
+     0.0   0.0% 105.1%      0.4   1.0% ::write_entries_to_memtable (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:461
+     0.0   0.0% 105.1%     -1.0  -2.6% ::write_op_to_row_entry (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytes-1.12.1/src/bytes.rs:677
+     0.0   0.0% 105.1%      0.3   0.7% __libc_start_call_main ./csu/../sysdeps/x86/libc-start.c:58
+     0.0   0.0% 105.1%      0.3   0.7% __libc_start_main_impl ./csu/../csu/libc-start.c:360
+     0.0   0.0% 105.1%     -2.4  -6.2% __rust_alloc (inline) /home/user/fenvix-engine/mongo-server/src/main.rs:12
+     0.0   0.0% 105.1%      0.1   0.3% __rust_alloc_zeroed (inline) /home/user/fenvix-engine/mongo-server/src/main.rs:12
+     0.0   0.0% 105.1%     37.9  99.3% __rust_begin_short_backtrace /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/sys/backtrace.rs:166
+     0.0   0.0% 105.1%     28.0  73.2% _rjem_je_malloc_default /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/src/jemalloc.c:2722
+     0.0   0.0% 105.1%     38.4 100.6% _rjem_je_prof_backtrace /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/src/prof_sys.c:284
+     0.0   0.0% 105.1%     38.4 100.6% _rjem_je_prof_tctx_create /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/src/prof.c:195
+     0.0   0.0% 105.1%      0.3   0.7% _start ??:?
+     0.0   0.0% 105.1%      0.4   1.0% alloc (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-skiplist-0.1.3/src/base.rs:103
+     0.0   0.0% 105.1%     -3.5  -9.3% alloc (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     -1.1  -2.9% alloc::alloc::alloc (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      1.2   3.1% alloc::boxed::box_new_uninit (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     -0.1  -0.3% alloc_impl (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/allocator-api2-0.2.21/src/stable/alloc/global.rs:35
+     0.0   0.0% 105.1%     28.7  75.2% alloc_impl (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:332
+     0.0   0.0% 105.1%     28.7  75.2% alloc_impl_runtime (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:210
+     0.0   0.0% 105.1%      0.1   0.3% alloc_zeroed (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:198
+     0.0   0.0% 105.1%     -0.1  -0.3% allocate (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/allocator-api2-0.2.21/src/stable/alloc/global.rs:100
+     0.0   0.0% 105.1%     28.6  74.9% allocate (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:449
+     0.0   0.0% 105.1%      0.1   0.3% allocate /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/io/registration_set.rs:63
+     0.0   0.0% 105.1%      0.5   1.3% allocate_for_layout (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/sync.rs:2185
+     0.0   0.0% 105.1%      0.5   1.3% allocate_for_slice (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/sync.rs:2270
+     0.0   0.0% 105.1%      0.1   0.3% allocate_zeroed (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:455
+     0.0   0.0% 105.1%      0.0   0.0% and_then (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/result.rs:1493
+     0.0   0.0% 105.1%      0.3   0.7% block_on (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/context/blocking.rs:66
+     0.0   0.0% 105.1%      0.3   0.7% block_on (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/park.rs:376
+     0.0   0.0% 105.1%      0.3   0.7% block_on (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/mod.rs:89
+     0.0   0.0% 105.1%      0.3   0.7% block_on /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/runtime.rs:346
+     0.0   0.0% 105.1%      0.3   0.7% block_on_inner (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/runtime.rs:381
+     0.0   0.0% 105.1%     -2.0  -5.3% box_new_uninit (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/boxed.rs:248
+     0.0   0.0% 105.1%      1.2   3.1% box_new_uninit /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/boxed.rs:248
+     0.0   0.0% 105.1%     38.2 100.0% budget (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/task/coop/mod.rs:133
+     0.0   0.0% 105.1%     -1.0  -2.6% bytes::bytes::promotable_even_clone /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytes-1.12.1/src/bytes.rs:1193
+     0.0   0.0% 105.1%     -1.0  -2.6% bytes::bytes::shallow_clone_vec (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%      2.9   7.6% bytes_into_minimal_vec (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/utils.rs:221
+     0.0   0.0% 105.1%     -1.0  -2.6% call_once (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/ops/function.rs:310
+     0.0   0.0% 105.1%     37.9  99.3% call_once (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/panic/unwind_safe.rs:275
+     0.0   0.0% 105.1%     37.9  99.3% call_once /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/ops/function.rs:250
+     0.0   0.0% 105.1%     37.9  99.3% catch_unwind (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/panic.rs:359
+     0.0   0.0% 105.1%     37.9  99.3% catch_unwind (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/panicking.rs:544
+     0.0   0.0% 105.1%      2.4   6.3% clamp_allocated_size /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_cache/mod.rs:511
+     0.0   0.0% 105.1%      0.5   1.3% clamp_allocated_size /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_cache/mod.rs:520
+     0.0   0.0% 105.1%      2.9   7.6% clamp_allocated_size_bytes /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/utils.rs:227
+     0.0   0.0% 105.1%      0.1   0.3% clone (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/document.rs:24
+     0.0   0.0% 105.1%     -3.2  -8.5% clone (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/document.rs:26
+     0.0   0.0% 105.1%     -1.5  -3.9% clone (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/lib.rs:162
+     0.0   0.0% 105.1%      0.1   0.3% clone /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/bson.rs:52
+     0.0   0.0% 105.1%     -3.1  -8.2% clone /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/inner.rs:92
+     0.0   0.0% 105.1%     37.9  99.3% clone3 ./misc/../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+     0.0   0.0% 105.1%     -1.5  -3.9% clone_from (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/inner.rs:101
+     0.0   0.0% 105.1%     -1.2  -3.2% clone_from (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/inner.rs:103
+     0.0   0.0% 105.1%     -0.3  -0.7% clone_from (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/inner.rs:97
+     0.0   0.0% 105.1%     -0.3  -0.7% clone_from /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:3361
+     0.0   0.0% 105.1%     -1.2  -3.2% clone_into /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/slice.rs:824
+     0.0   0.0% 105.1%      0.0   0.0% collect (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/traits/iterator.rs:2090
+     0.0   0.0% 105.1%      0.4   1.0% compare_insert (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-skiplist-0.1.3/src/map.rs:404
+     0.0   0.0% 105.1%     -6.3 -16.4% copy_from_slice /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytes-1.12.1/src/bytes.rs:348
+     0.0   0.0% 105.1%      3.3   8.7% core::future::future::Future>::poll (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+     0.0   0.0% 105.1%     -0.0  -0.0% core::future::future::Future>::poll (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%      0.3   0.7% core::iter::adapters::try_process:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:3926
+     0.0   0.0% 105.1%     -1.2  -3.2% core::iter::traits::iterator::Iterator::for_each::call::{closure_env#0}> (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/map.rs:128
+     0.0   0.0% 105.1%     -1.2  -3.2% core::iter::traits::iterator::Iterator::for_each::call::{closure_env#0}> (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/map.rs:88
+     0.0   0.0% 105.1%      0.5   1.3% core::ops::control_flow::ControlFlow> (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/traits/iterator.rs:2494
+     0.0   0.0% 105.1%      0.5   1.3% core::ops::control_flow::ControlFlow> (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/traits/iterator.rs:2556
+     0.0   0.0% 105.1%      0.5   1.3% core::ops::control_flow::ControlFlow> /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/map.rs:121
+     0.0   0.0% 105.1%      3.3   8.7% core::option::Option> /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/backon-1.6.0/src/retry.rs:388
+     0.0   0.0% 105.1%      0.3   0.7% core::result::Result> (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/ops/function.rs:250
+     0.0   0.0% 105.1%      0.3   0.7% core::result::Result> /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/sys/backtrace.rs:166
+     0.0   0.0% 105.1%      0.4   1.0% decode /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flatbuffer_types.rs:201
+     0.0   0.0% 105.1%      0.1   0.3% decode /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/block.rs:40
+     0.0   0.0% 105.1%      0.1   0.3% decode_gorilla_i64_with_length /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/seq_tracker.rs:395
+     0.0   0.0% 105.1%     -0.3  -0.7% decode_lsm_tree_v2 /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flatbuffer_types.rs:519
+     0.0   0.0% 105.1%      0.5   1.3% decode_lsm_tree_v2 /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flatbuffer_types.rs:520
+     0.0   0.0% 105.1%      0.1   0.3% decode_sequence_tracker /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/seq_tracker.rs:266
+     0.0   0.0% 105.1%      0.5   1.3% decode_sorted_runs_v2 (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flatbuffer_types.rs:486
+     0.0   0.0% 105.1%     -0.1  -0.3% do_alloc (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/alloc.rs:40
+     0.0   0.0% 105.1%     37.9  99.3% do_call (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/panicking.rs:581
+     0.0   0.0% 105.1%     10.5  27.4% do_rallocx /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/src/jemalloc.c:3531
+     0.0   0.0% 105.1%     10.2  26.7% do_reserve_and_handle /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:668
+     0.0   0.0% 105.1%      0.1   0.3% doc_of /home/user/fenvix-engine/mongo-server/src/ctl/usage.rs:251
+     0.0   0.0% 105.1%      0.1   0.3% emplace (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:193
+     0.0   0.0% 105.1%      0.3   0.7% enter_runtime (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/context/runtime.rs:65
+     0.0   0.0% 105.1%     37.9  99.3% enter_runtime /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/context/runtime.rs:65
+     0.0   0.0% 105.1%      0.1   0.3% entry (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/table.rs:418
+     0.0   0.0% 105.1%     -0.3  -0.7% extend_desugared (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:4030
+     0.0   0.0% 105.1%     -1.2  -3.2% extend_from_slice (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:3557
+     0.0   0.0% 105.1%     -0.7  -1.9% extend_trusted (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:4062
+     0.0   0.0% 105.1%      0.1   0.3% fallible_with_capacity /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:1634
+     0.0   0.0% 105.1%     -0.1  -0.3% find_block /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/sync/mpsc/list.rs:146
+     0.0   0.0% 105.1%      0.1   0.3% find_or_find_insert_index (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:1126
+     0.0   0.0% 105.1%      0.1   0.3% finish /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_state.rs:920
+     0.0   0.0% 105.1%     10.5  27.4% finish_grow /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:556
+     0.0   0.0% 105.1%      1.5   4.0% finish_grow /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:559
+     0.0   0.0% 105.1%      0.4   1.0% fold (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/into_iter.rs:367
+     0.0   0.0% 105.1%     -1.2  -3.2% fold (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/cloned.rs:61
+     0.0   0.0% 105.1%      0.5   1.3% fold (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/map.rs:128
+     0.0   0.0% 105.1%      0.5   1.3% fold (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/slice/iter/macros.rs:279
+     0.0   0.0% 105.1%     -1.2  -3.2% fold> (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/slice/iter/macros.rs:279
+     0.0   0.0% 105.1%     -0.4  -0.9% for_each (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/traits/iterator.rs:887
+     0.0   0.0% 105.1%     -1.1  -2.8% freeze_memtable /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_state.rs:843
+     0.0   0.0% 105.1%      0.1   0.3% from_elem (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:3708
+     0.0   0.0% 105.1%      0.1   0.3% from_elem (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_elem.rs:51
+     0.0   0.0% 105.1%     -0.3  -0.7% from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/collections/vec_deque/mod.rs:3828
+     0.0   0.0% 105.1%      0.5   1.3% from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/sync.rs:4163
+     0.0   0.0% 105.1%      0.6   1.7% from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:3926
+     0.0   0.0% 105.1%     -0.2  -0.6% from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_iter_nested.rs:24
+     0.0   0.0% 105.1%     -0.3  -0.7% from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_iter_nested.rs:30
+     0.0   0.0% 105.1%     -0.3  -0.7% from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_iter_nested.rs:41
+     0.0   0.0% 105.1%      0.1   0.3% from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/result.rs:2156
+     0.0   0.0% 105.1%      0.0   0.0% from_iter /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/document.rs:181
+     0.0   0.0% 105.1%      0.3   0.7% from_iter /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/document.rs:182
+     0.0   0.0% 105.1%     -0.7  -2.0% from_iter /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_iter.rs:33
+     0.0   0.0% 105.1%      0.1   0.3% from_iter /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_iter_nested.rs:52
+     0.0   0.0% 105.1%      0.5   1.3% from_iter /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_from_iter_nested.rs:60
+     0.0   0.0% 105.1%      0.5   1.3% from_iter_exact /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/sync.rs:2320
+     0.0   0.0% 105.1%      0.1   0.3% from_reader (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/document.rs:733
+     0.0   0.0% 105.1%     -0.1  -0.3% grow (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/sync/mpsc/block.rs:358
+     0.0   0.0% 105.1%     10.5  27.4% grow (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:474
+     0.0   0.0% 105.1%     10.5  27.4% grow_impl (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:362
+     0.0   0.0% 105.1%     10.5  27.4% grow_impl_runtime (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:259
+     0.0   0.0% 105.1%      0.1   0.3% grow_one (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:492
+     0.0   0.0% 105.1%      0.1   0.3% grow_one /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:188
+     0.0   0.0% 105.1%     28.0  73.2% imalloc (inline) /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/src/jemalloc.c:2687
+     0.0   0.0% 105.1%     28.0  73.2% imalloc_body (inline) /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/src/jemalloc.c:2550
+     0.0   0.0% 105.1%     -1.2  -3.2% indexmap::Bucket, > (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/ops/function.rs:166
+     0.0   0.0% 105.1%      0.3   0.7% insert (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/document.rs:659
+     0.0   0.0% 105.1%      0.1   0.3% insert (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:589
+     0.0   0.0% 105.1%      0.1   0.3% insert /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/cache.rs:713
+     0.0   0.0% 105.1%      0.1   0.3% insert /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/indexer/hash_table.rs:64
+     0.0   0.0% 105.1%      0.1   0.3% insert /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/collections/btree/map.rs:1052
+     0.0   0.0% 105.1%      0.1   0.3% insert_entry /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/collections/btree/map/entry.rs:386
+     0.0   0.0% 105.1%      0.3   0.7% insert_full /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/map.rs:469
+     0.0   0.0% 105.1%      0.1   0.3% insert_inner /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:645
+     0.0   0.0% 105.1%      0.4   1.0% insert_internal /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/crossbeam-skiplist-0.1.3/src/base.rs:912
+     0.0   0.0% 105.1%      0.5   1.3% insert_with_properties_inner /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:622
+     0.0   0.0% 105.1%     10.5  27.4% irallocx_prof (inline) /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/src/jemalloc.c:3472
+     0.0   0.0% 105.1%      0.1   0.3% listen /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/event-listener-5.4.2/src/lib.rs:310
+     0.0   0.0% 105.1%      0.3   0.7% main ??:?
+     0.0   0.0% 105.1%      0.1   0.3% manifest_v2 (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flatbuffer_types.rs:425
+     0.0   0.0% 105.1%     -1.0  -2.6% map (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/option.rs:1162
+     0.0   0.0% 105.1%      0.1   0.3% mongo_server::auth::redact_command (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/map.rs:111
+     0.0   0.0% 105.1%      0.1   0.3% mongo_server::ctl::usage::spawn_flusher::{closure#0} (inline) /home/user/fenvix-engine/mongo-server/src/ctl/usage.rs:271
+     0.0   0.0% 105.1%     -8.6 -22.4% mongo_server::diag::as_op::::{closure#0} (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:245
+     0.0   0.0% 105.1%      0.1   0.3% mongo_server::handle_connection_inner::{closure#0} (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:166
+     0.0   0.0% 105.1%      0.1   0.3% mongo_server::handle_connection_inner::{closure#0} (inline) /home/user/fenvix-engine/mongo-server/src/wire.rs:108
+     0.0   0.0% 105.1%     -0.3  -0.7% mongo_server::handle_connection_inner::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/map.rs:111
+     0.0   0.0% 105.1%      0.3   0.7% mongo_server::main /home/user/fenvix-engine/mongo-server/src/main.rs:469
+     0.0   0.0% 105.1%      0.3   0.7% mongo_server::run::{closure#0} /home/user/fenvix-engine/mongo-server/src/main.rs:617
+     0.0   0.0% 105.1%      0.1   0.3% mongo_server::wire::parse_body /home/user/fenvix-engine/mongo-server/src/wire.rs:118
+     0.0   0.0% 105.1%      0.1   0.3% mongo_server::wire::parse_msg (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/convert/mod.rs:820
+     0.0   0.0% 105.1%      0.5   1.3% new (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_state.rs:573
+     0.0   0.0% 105.1%      0.1   0.3% new (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/io/poll_evented.rs:90
+     0.0   0.0% 105.1%      0.1   0.3% new (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/io/util/buf_reader.rs:41
+     0.0   0.0% 105.1%     -0.1  -0.3% new (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/sync/mpsc/block.rs:99
+     0.0   0.0% 105.1%     -2.0  -5.3% new (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/boxed.rs:286
+     0.0   0.0% 105.1%      0.1   0.3% new (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/collections/btree/node.rs:87
+     0.0   0.0% 105.1%      0.2   0.7% new (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/sync.rs:427
+     0.0   0.0% 105.1%     -1.0  -2.6% new /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:437
+     0.0   0.0% 105.1%     -0.1  -0.3% new /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/mem_table.rs:371
+     0.0   0.0% 105.1%     -1.0  -2.5% new /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/mem_table.rs:377
+     0.0   0.0% 105.1%      0.1   0.3% new /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/net/tcp/stream.rs:167
+     0.0   0.0% 105.1%      0.1   0.3% new_leaf (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/collections/btree/node.rs:225
+     0.0   0.0% 105.1%      0.1   0.3% new_uninit_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/boxed.rs:581
+     0.0   0.0% 105.1%     -0.1  -0.3% new_uninitialized (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:1576
+     0.0   0.0% 105.1%      0.1   0.3% new_with_interest (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/io/poll_evented.rs:111
+     0.0   0.0% 105.1%     -1.0  -2.6% next (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/map.rs:107
+     0.0   0.0% 105.1%      0.5   1.3% next (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/mod.rs:177
+     0.0   0.0% 105.1%      0.1   0.3% parse_msg /home/user/fenvix-engine/mongo-server/src/wire.rs:156
+     0.0   0.0% 105.1%      0.0   0.1% pin (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/boxed.rs:356
+     0.0   0.0% 105.1%      0.1   0.3% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/async-channel-2.5.0/src/lib.rs:1265
+     0.0   0.0% 105.1%      0.1   0.3% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/either.rs:108
+     0.0   0.0% 105.1%      1.2   3.1% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/future/catch_unwind.rs:37
+     0.0   0.0% 105.1%     41.7 109.0% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/future/map.rs:55
+     0.0   0.0% 105.1%     42.0 110.0% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/try_future/into_future.rs:34
+     0.0   0.0% 105.1%     41.8 109.4% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/lib.rs:85
+     0.0   0.0% 105.1%      0.1   0.3% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/connect/http.rs:660
+     0.0   0.0% 105.1%     37.9  99.3% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/blocking/task.rs:42
+     0.0   0.0% 105.1%     41.8 109.4% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/core.rs:369
+     0.0   0.0% 105.1%     -8.6 -22.4% poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/task/task_local.rs:399
+     0.0   0.0% 105.1%      3.8  10.0% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:1394
+     0.0   0.0% 105.1%     41.9 109.7% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/future/map.rs:55
+     0.0   0.0% 105.1%      0.1   0.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/maybe_done.rs:96
+     0.0   0.0% 105.1%     -0.0  -0.0% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/select.rs:117
+     0.0   0.0% 105.1%      0.1   0.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/try_future/try_flatten.rs:49
+     0.0   0.0% 105.1%      0.1   0.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/try_join_all.rs:162
+     0.0   0.0% 105.1%      0.1   0.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/try_maybe_done.rs:79
+     0.0   0.0% 105.1%     41.7 109.0% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/lib.rs:85
+     0.0   0.0% 105.1%      0.1   0.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/stream/stream/collect.rs:50
+     0.0   0.0% 105.1%      0.6   1.6% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/stream/stream/for_each_concurrent.rs:104
+     0.0   0.0% 105.1%     41.7 109.0% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/client/conn/http1.rs:671
+     0.0   0.0% 105.1%      0.1   0.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/common/lazy.rs:?
+     0.0   0.0% 105.1%      0.1   0.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/service/oneshot.rs:53
+     0.0   0.0% 105.1%     -0.1  -0.4% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-0.13.5/src/async_impl/client.rs:3085
+     0.0   0.0% 105.1%     37.9  99.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/core.rs:369
+     0.0   0.0% 105.1%     37.9  99.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/harness.rs:155
+     0.0   0.0% 105.1%     -8.6 -22.4% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/task/task_local.rs:399
+     0.0   0.0% 105.1%     -0.1  -0.4% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-0.5.3/src/retry/future.rs:76
+     0.0   0.0% 105.1%     -0.1  -0.4% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-http-0.6.11/src/follow_redirect/mod.rs:259
+     0.0   0.0% 105.1%      0.1   0.3% poll /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tracing-0.1.44/src/instrument.rs:321
+     0.0   0.0% 105.1%    -10.1 -26.5% poll /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/future.rs:133
+     0.0   0.0% 105.1%      0.1   0.3% poll /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/future/poll_fn.rs:151
+     0.0   0.0% 105.1%      1.2   3.1% poll /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/panic/unwind_safe.rs:300
+     0.0   0.0% 105.1%     41.7 109.0% poll_catch /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/dispatch.rs:128
+     0.0   0.0% 105.1%     37.9  99.3% poll_future (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/harness.rs:525
+     0.0   0.0% 105.1%     41.7 109.0% poll_inner (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/dispatch.rs:150
+     0.0   0.0% 105.1%     37.9  99.3% poll_inner (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/harness.rs:210
+     0.0   0.0% 105.1%     41.7 109.0% poll_loop (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/dispatch.rs:173
+     0.0   0.0% 105.1%      0.1   0.3% poll_next (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/stream/stream/buffer_unordered.rs:75
+     0.0   0.0% 105.1%      0.8   2.0% poll_next /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/stream/futures_unordered/mod.rs:539
+     0.0   0.0% 105.1%     16.5  43.3% poll_read (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/dispatch.rs:230
+     0.0   0.0% 105.1%     41.7 109.0% poll_read_from_io /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/io.rs:242
+     0.0   0.0% 105.1%     16.5  43.3% poll_read_head /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/proto/h1/conn.rs:315
+     0.0   0.0% 105.1%      3.8  10.0% poll_unpin (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.34/src/future/future/mod.rs:556
+     0.0   0.0% 105.1%     38.4 100.6% prof_alloc_prep (inline) /opt/target-prof/release/build/tikv-jemalloc-sys-4d4d3f23d50eeb2d/out/build/include/jemalloc/internal/prof_inlines.h:141
+     0.0   0.0% 105.1%     -0.5  -1.3% publish /home/user/fenvix-engine/mongo-server/src/changes.rs:133
+     0.0   0.0% 105.1%      0.1   0.3% push (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:1004
+     0.0   0.0% 105.1%      0.1   0.3% push /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/concurrent-queue-2.5.0/src/unbounded.rs:195
+     0.0   0.0% 105.1%     -0.3  -0.7% push /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/concurrent-queue-2.5.0/src/unbounded.rs:201
+     0.0   0.0% 105.1%      0.3   0.7% push_entry /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/inner.rs:325
+     0.0   0.0% 105.1%      0.4   1.0% put (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/mem_table.rs:546
+     0.0   0.0% 105.1%     -6.5 -17.0% put /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:175
+     0.0   0.0% 105.1%      0.4   1.0% put /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/mem_table.rs:144
+     0.0   0.0% 105.1%      0.1   0.3% put_opts /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/aws/mod.rs:231
+     0.0   0.0% 105.1%     -6.1 -16.1% put_with_options (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:191
+     0.0   0.0% 105.1%      0.1   0.3% read_doc (inline) /home/user/fenvix-engine/mongo-server/src/wire.rs:47
+     0.0   0.0% 105.1%      0.1   0.3% redact_command /home/user/fenvix-engine/mongo-server/src/auth.rs:91
+     0.0   0.0% 105.1%      0.1   0.3% reqwest::connect::with_timeout::::{closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/time/timeout.rs:216
+     0.0   0.0% 105.1%     10.2  26.7% reserve (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:341
+     0.0   0.0% 105.1%     10.2  26.7% reserve (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:1471
+     0.0   0.0% 105.1%      0.1   0.3% reserve_entries (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/inner.rs:489
+     0.0   0.0% 105.1%     -1.4  -3.6% reserve_entries (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/indexmap-2.14.2/src/inner.rs:492
+     0.0   0.0% 105.1%      1.5   4.0% reserve_exact (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:374
+     0.0   0.0% 105.1%      1.5   4.0% reserve_exact (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:710
+     0.0   0.0% 105.1%      1.5   4.0% reserve_exact (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:1501
+     0.0   0.0% 105.1%     10.2  26.7% reserve_inner /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytes-1.12.1/src/bytes_mut.rs:770
+     0.0   0.0% 105.1%     31.4  82.3% reserve_inner /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytes-1.12.1/src/bytes_mut.rs:790
+     0.0   0.0% 105.1%      0.1   0.3% reserve_rehash /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:962
+     0.0   0.0% 105.1%      0.1   0.3% reserve_rehash_inner (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:2784
+     0.0   0.0% 105.1%      0.1   0.3% resize_inner (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hashbrown-0.17.1/src/raw.rs:2898
+     0.0   0.0% 105.1%     37.9  99.3% run (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/blocking/pool.rs:220
+     0.0   0.0% 105.1%     37.9  99.3% run (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/mod.rs:523
+     0.0   0.0% 105.1%     37.9  99.3% run (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/mod.rs:560
+     0.0   0.0% 105.1%     37.9  99.3% run /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/blocking/pool.rs:764
+     0.0   0.0% 105.1%     37.9  99.3% run_task /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/worker.rs:696
+     0.0   0.0% 105.1%     37.9  99.3% run_worker (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/blocking/pool.rs:571
+     0.0   0.0% 105.1%     37.9  99.3% run_worker (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/blocking/pool.rs:660
+     0.0   0.0% 105.1%     -8.6 -22.4% scope_inner (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/task/task_local.rs:217
+     0.0   0.0% 105.1%     -0.1  -0.3% send (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/sync/mpsc/chan.rs:197
+     0.0   0.0% 105.1%     -0.1  -0.3% send (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/sync/mpsc/chan.rs:553
+     0.0   0.0% 105.1%     -0.1  -0.3% send (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/sync/mpsc/unbounded.rs:564
+     0.0   0.0% 105.1%      0.1   0.3% serialize_entry /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.229/src/ser/mod.rs:1861
+     0.0   0.0% 105.1%      0.1   0.3% serialize_value (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.154/src/value/ser.rs:427
+     0.0   0.0% 105.1%     37.9  99.3% set /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/context/scoped.rs:40
+     0.0   0.0% 105.1%      0.1   0.3% set_next_wal_id /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_state.rs:856
+     0.0   0.0% 105.1%     37.9  99.3% set_scheduler (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/context.rs:186
+     0.0   0.0% 105.1%     -1.0  -2.6% shallow_clone_vec /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bytes-1.12.1/src/bytes.rs:1486
+     0.0   0.0% 105.1%      0.1   0.3% slatedb::seq_tracker::decode_gorilla_i64_with_length (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:1041
+     0.0   0.0% 105.1%      0.1   0.3% slatedb::seq_tracker::decode_sequence_tracker (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/seq_tracker.rs:421
+     0.0   0.0% 105.1%      2.9   7.6% slatedb::utils::clamp_allocated_size_bytes (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:800
+     0.0   0.0% 105.1%      0.3   0.7% spawn /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/task/spawn.rs:181
+     0.0   0.0% 105.1%     -0.3  -0.7% spec_extend (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_extend.rs:18
+     0.0   0.0% 105.1%     -0.7  -1.9% spec_extend (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_extend.rs:27
+     0.0   0.0% 105.1%     -1.2  -3.2% spec_extend (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/spec_extend.rs:46
+     0.0   0.0% 105.1%     -0.3  -0.7% spec_from_iter (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/collections/vec_deque/spec_from_iter.rs:17
+     0.0   0.0% 105.1%     37.9  99.3% start_thread ./nptl/./nptl/pthread_create.c:447
+     0.0   0.0% 105.1%      0.3   0.7% std::panic::catch_unwind:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/panic.rs:359
+     0.0   0.0% 105.1%      0.3   0.7% std::panicking::catch_unwind:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/panicking.rs:544
+     0.0   0.0% 105.1%      0.3   0.7% std::panicking::catch_unwind::do_call:: (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/panicking.rs:581
+     0.0   0.0% 105.1%      0.3   0.7% std::rt::lang_start::::{closure#0} /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/rt.rs:206
+     0.0   0.0% 105.1%      0.3   0.7% std::rt::lang_start_internal /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/rt.rs:171
+     0.0   0.0% 105.1%      0.3   0.7% std::rt::lang_start_internal::{closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/rt.rs:175
+     0.0   0.0% 105.1%     37.9  99.3% std::sys::backtrace::__rust_begin_short_backtrace:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/blocking/pool.rs:525
+     0.0   0.0% 105.1%     -1.7  -4.4% timed /home/user/fenvix-engine/mongo-server/src/fair.rs:290
+     0.0   0.0% 105.1%     -0.1  -0.3% to_owned (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/slice.rs:842
+     0.0   0.0% 105.1%     -0.1  -0.3% to_owned (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/str.rs:251
+     0.0   0.0% 105.1%     -0.6  -1.6% to_row_entry (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:111
+     0.0   0.0% 105.1%     -0.4  -1.0% to_row_entry (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:112
+     0.0   0.0% 105.1%      0.1   0.3% to_value (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_json-1.0.154/src/value/mod.rs:999
+     0.0   0.0% 105.1%     -6.4 -16.7% to_vec (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/slice.rs:376
+     0.0   0.0% 105.1%     -6.4 -16.7% to_vec (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/slice.rs:448
+     0.0   0.0% 105.1%     -6.4 -16.7% to_vec_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/slice.rs:400
+     0.0   0.0% 105.1%     37.9  99.3% tokio::runtime::context::runtime::enter_runtime:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/context.rs:186
+     0.0   0.0% 105.1%     37.9  99.3% tokio::runtime::scheduler::multi_thread::worker::run /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/worker.rs:549
+     0.0   0.0% 105.1%     27.3  71.4% try_allocate_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:465
+     0.0   0.0% 105.1%      0.1   0.3% try_allocate_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:467
+     0.0   0.0% 105.1%      0.0   0.0% try_from (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/raw/bson_ref.rs:416
+     0.0   0.0% 105.1%      0.1   0.3% try_from (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/raw/document.rs:587
+     0.0   0.0% 105.1%      0.0   0.0% try_from /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/raw/bson.rs:454
+     0.0   0.0% 105.1%      0.1   0.3% try_from /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/raw/document.rs:647
+     0.0   0.0% 105.1%      0.0   0.0% try_into (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/convert/mod.rs:820
+     0.0   0.0% 105.1%      0.1   0.3% try_new_uninit_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/boxed.rs:614
+     0.0   0.0% 105.1%      0.3   0.7% try_poll (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-core-0.3.34/src/future.rs:92
+     0.0   0.0% 105.1%      0.1   0.3% try_process (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/mod.rs:163
+     0.0   0.0% 105.1%      0.3   0.7% try_process /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/mod.rs:163
+     0.0   0.0% 105.1%      0.1   0.3% try_reserve_exact (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:384
+     0.0   0.0% 105.1%      1.7   4.4% try_reserve_exact (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:728
+     0.0   0.0% 105.1%      0.1   0.3% try_reserve_exact (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:1581
+     0.0   0.0% 105.1%     -0.1  -0.3% try_send (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/client/dispatch.rs:113
+     0.0   0.0% 105.1%     -0.1  -0.3% try_send /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/async-channel-2.5.0/src/lib.rs:231
+     0.0   0.0% 105.1%     -0.1  -0.3% try_send_request (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-1.12.0/src/client/conn/http1.rs:265
+     0.0   0.0% 105.1%     -0.1  -0.3% try_send_request (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/client.rs:829
+     0.0   0.0% 105.1%     37.9  99.3% try_with (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/thread/local.rs:462
+     0.0   0.0% 105.1%     -0.1  -0.3% unwrap_or_else (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/option.rs:1064
+     0.0   0.0% 105.1%      0.1   0.3% with (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-common-0.22.6/src/utils/scope.rs:23
+     0.0   0.0% 105.1%     37.9  99.3% with (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/thread/local.rs:426
+     0.0   0.0% 105.1%     38.2 100.0% with_budget (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/task/coop/mod.rs:167
+     0.0   0.0% 105.1%      0.1   0.3% with_capacity (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/io/util/buf_reader.rs:52
+     0.0   0.0% 105.1%     33.7  88.2% with_capacity (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:524
+     0.0   0.0% 105.1%     27.3  71.4% with_capacity_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:177
+     0.0   0.0% 105.1%     27.3  71.4% with_capacity_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:434
+     0.0   0.0% 105.1%     27.3  71.4% with_capacity_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/vec/mod.rs:977
+     0.0   0.0% 105.1%      0.1   0.3% with_capacity_zeroed_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:221
+     0.0   0.0% 105.1%      0.1   0.3% with_capacity_zeroed_in (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/raw_vec/mod.rs:590
+     0.0   0.0% 105.1%     -1.1  -2.9% with_config /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/seq_tracker.rs:71
+     0.0   0.0% 105.1%      0.2   0.4% with_config /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/seq_tracker.rs:72
+     0.0   0.0% 105.1%     37.9  99.3% with_mut (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/loom/std/unsafe_cell.rs:16
+     0.0   0.0% 105.1%      0.4   1.0% write_entries_to_memtable /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:461
+     0.0   0.0% 105.1%     -1.0  -2.6% write_op_to_row_entry /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch.rs:420
+     0.0   0.0% 105.1%     -8.4 -22.1% {async_block#0} (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:224
+     0.0   0.0% 105.1%     -8.4 -22.1% {async_block#0} (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:227
+     0.0   0.0% 105.1%      0.6   1.6% {async_block#0} (inline) /home/user/fenvix-engine/src/lifecycle.rs:1609
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/connect/http.rs:967
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_block#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:389
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_block#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/memtable_flusher/manifest_writer.rs:648
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/retrying_object_store.rs:324
+     0.0   0.0% 105.1%      3.3   8.7% {async_block#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/retrying_object_store.rs:341
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_block#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/retrying_object_store.rs:400
+     0.0   0.0% 105.1%     -0.0  -0.0% {async_block#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/writer.rs:476
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/writer.rs:505
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /home/user/fenvix-engine/mongo-server/src/ctl/usage.rs:337
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_block#0} /home/user/fenvix-engine/mongo-server/src/ctl/usage.rs:504
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /home/user/fenvix-engine/mongo-server/src/ctl/usage.rs:515
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_block#0} /home/user/fenvix-engine/src/counting.rs:345
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /home/user/fenvix-engine/src/counting.rs:383
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-rustls-0.27.10/src/connector.rs:92
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/connect/http.rs:493
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/aws/client.rs:970
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/aws/mod.rs:333
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/client/get.rs:75
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/lib.rs:1331
+     0.0   0.0% 105.1%      3.4   9.0% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/lib.rs:1343
+     0.0   0.0% 105.1%     -0.6  -1.6% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:127
+     0.0   0.0% 105.1%     -1.1  -2.8% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:147
+     0.0   0.0% 105.1%      3.8  10.0% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_cache/foyer.rs:182
+     0.0   0.0% 105.1%      3.0   8.0% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_cache/mod.rs:1017
+     0.0   0.0% 105.1%      3.0   8.0% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db_cache/mod.rs:912
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/instrumented_object_store.rs:166
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/instrumented_object_store.rs:191
+     0.0   0.0% 105.1%     -0.4  -1.0% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/memtable_flusher/manifest_writer.rs:254
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_io.rs:28
+     0.0   0.0% 105.1%      3.0   8.0% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:1148
+     0.0   0.0% 105.1%      0.5   1.4% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:639
+     0.0   0.0% 105.1%      3.2   8.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:676
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:677
+     0.0   0.0% 105.1%     -0.3  -0.7% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-txn-obj-0.17.0/src/lib.rs:433
+     0.0   0.0% 105.1%     -0.3  -0.7% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-txn-obj-0.17.0/src/lib.rs:535
+     0.0   0.0% 105.1%     -0.3  -0.7% {async_block#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-txn-obj-0.17.0/src/lib.rs:700
+     0.0   0.0% 105.1%     -8.6 -22.4% {async_block#1} (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:174
+     0.0   0.0% 105.1%      0.1   0.3% {async_block#2} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/compactor_executor.rs:685
+     0.0   0.0% 105.1%    -10.3 -26.9% {async_fn#0} (inline) /home/user/fenvix-engine/mongo-server/src/cmd.rs:174
+     0.0   0.0% 105.1%     -8.6 -22.4% {async_fn#0} (inline) /home/user/fenvix-engine/mongo-server/src/diag.rs:311
+     0.0   0.0% 105.1%     -8.4 -22.1% {async_fn#0} (inline) /home/user/fenvix-engine/mongo-server/src/js.rs:47
+     0.0   0.0% 105.1%    -10.1 -26.5% {async_fn#0} (inline) /home/user/fenvix-engine/mongo-server/src/main.rs:375
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /home/user/fenvix-engine/mongo-server/src/wire.rs:112
+     0.0   0.0% 105.1%      0.6   1.6% {async_fn#0} (inline) /home/user/fenvix-engine/src/lifecycle.rs:1188
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /home/user/fenvix-engine/src/lifecycle.rs:849
+     0.0   0.0% 105.1%     -0.0  -0.0% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/client.rs:281
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/client.rs:324
+     0.0   0.0% 105.1%     -0.0  -0.0% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/client.rs:373
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/connect/http.rs:577
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/connect/http.rs:787
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/connect/http.rs:981
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/client/get.rs:176
+     0.0   0.0% 105.1%     -0.1  -0.4% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/client/http/connection.rs:168
+     0.0   0.0% 105.1%     -0.1  -0.4% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/client/retry.rs:354
+     0.0   0.0% 105.1%      3.3   8.7% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/lib.rs:1873
+     0.0   0.0% 105.1%      3.3   8.7% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/util.rs:59
+     0.0   0.0% 105.1%     -1.1  -2.8% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:367
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db.rs:1691
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/db.rs:1738
+     0.0   0.0% 105.1%      1.3   3.5% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/dispatcher.rs:317
+     0.0   0.0% 105.1%     -0.4  -1.0% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/dispatcher.rs:321
+     0.0   0.0% 105.1%      3.0   8.0% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flush.rs:65
+     0.0   0.0% 105.1%      0.3   0.7% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/format/sst.rs:702
+     0.0   0.0% 105.1%     -0.4  -1.0% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/memtable_flusher/manifest_writer.rs:651
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_iter.rs:1125
+     0.0   0.0% 105.1%      2.5   6.6% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:215
+     0.0   0.0% 105.1%      0.5   1.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:223
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:579
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/store.rs:206
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_fn#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/store.rs:231
+     0.0   0.0% 105.1%      1.2   3.1% {async_fn#0} /home/user/fenvix-engine/mongo-server/src/cmd.rs:263
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} /home/user/fenvix-engine/mongo-server/src/cmd.rs:319
+     0.0   0.0% 105.1%     -9.7 -25.5% {async_fn#0} /home/user/fenvix-engine/mongo-server/src/cmd.rs:418
+     0.0   0.0% 105.1%     -6.4 -16.7% {async_fn#0} /home/user/fenvix-engine/mongo-server/src/cmd_data.rs:594
+     0.0   0.0% 105.1%     -8.6 -22.4% {async_fn#0} /home/user/fenvix-engine/mongo-server/src/diag.rs:333
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} /home/user/fenvix-engine/mongo-server/src/main.rs:383
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} /home/user/fenvix-engine/mongo-server/src/main.rs:398
+     0.0   0.0% 105.1%    -10.4 -27.2% {async_fn#0} /home/user/fenvix-engine/mongo-server/src/main.rs:402
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_fn#0} /home/user/fenvix-engine/src/lifecycle.rs:625
+     0.0   0.0% 105.1%     -0.1  -0.4% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hyper-util-0.1.21/src/client/legacy/client.rs:249
+     0.0   0.0% 105.1%     -0.3  -0.7% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/object_store-0.14.2/src/client/retry.rs:311
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-0.13.5/src/connect.rs:675
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-0.13.5/src/connect.rs:909
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/batch_write.rs:389
+     0.0   0.0% 105.1%      1.1   2.8% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/dispatcher.rs:344
+     0.0   0.0% 105.1%      0.6   1.6% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/manifest/store.rs:569
+     0.0   0.0% 105.1%     -0.3  -0.7% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/manifest/store.rs:79
+     0.0   0.0% 105.1%      3.0   8.0% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/memtable_flusher/uploader.rs:235
+     0.0   0.0% 105.1%      3.4   9.0% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_io.rs:67
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/sst_iter.rs:599
+     0.0   0.0% 105.1%     -0.0  -0.0% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/writer.rs:476
+     0.0   0.0% 105.1%     -0.1  -0.3% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/wal/slatedb/writer.rs:524
+     0.0   0.0% 105.1%      0.1   0.3% {async_fn#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/net/tcp/socket.rs:868
+     0.0   0.0% 105.1%      0.0   0.0% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bson-3.1.0/src/raw/document.rs:586
+     0.0   0.0% 105.1%      0.1   0.3% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/foyer-memory-0.22.6/src/raw.rs:645
+     0.0   0.0% 105.1%      0.5   1.3% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/flatbuffer_types.rs:483
+     0.0   0.0% 105.1%      0.3   0.7% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/park.rs:376
+     0.0   0.0% 105.1%      0.3   0.7% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/mod.rs:90
+     0.0   0.0% 105.1%     37.9  99.3% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/worker.rs:557
+     0.0   0.0% 105.1%     27.4  71.9% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/worker.rs:705
+     0.0   0.0% 105.1%     10.5  27.4% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/scheduler/multi_thread/worker.rs:791
+     0.0   0.0% 105.1%     37.9  99.3% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/core.rs:380
+     0.0   0.0% 105.1%     41.8 109.4% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/runtime/task/harness.rs:537
+     0.0   0.0% 105.1%     -0.1  -0.3% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/sync/mpsc/list.rs:146
+     0.0   0.0% 105.1%     -8.6 -22.4% {closure#0} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/task/task_local.rs:401
+     0.0   0.0% 105.1%      0.5   1.3% {closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/sync.rs:2272
+     0.0   0.0% 105.1%      0.5   1.3% {closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/map.rs:88
+     0.0   0.0% 105.1%      0.4   1.0% {closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/traits/iterator.rs:884
+     0.0   0.0% 105.1%      0.4   1.0% {closure#0} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/result.rs:2156
+     0.0   0.0% 105.1%      0.5   1.3% {closure#0}> (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/core/src/iter/adapters/map.rs:95
+     0.0   0.0% 105.1%     37.9  99.3% {closure#1} (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/std/src/thread/lifecycle.rs:68
+     0.0   0.0% 105.1%      0.1   0.3% {closure#4} (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tokio-1.54.1/src/macros/select.rs:710
+     0.0   0.0% 105.1%      0.3   0.7% {synthetic#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:616
+     0.0   0.0% 105.1%      0.3   0.7% {synthetic#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:630
+     0.0   0.0% 105.1%      3.2   8.3% {synthetic#0} /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/slatedb-0.17.0/src/tablestore.rs:673
+    -0.1  -0.3% 104.7%     -0.1  -0.3% ::new (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+    -0.1  -0.3% 104.4%     -0.1  -0.3% ::push (inline) /rustc/2d8144b7880597b6e6d3dfd63a9a9efae3f533d3/library/alloc/src/alloc.rs:101
+    -1.7  -4.4% 100.0%     -1.7  -4.4% mongo_server::fair::timed:: (inline) /root/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tikv-jemallocator-0.6.0/src/lib.rs:107

@@ -4,6 +4,17 @@
 //! (reader wake, upgrade on first write, clean close after an idle period, `_clean` marker,
 //! standalone compaction and GC).
 
+/// jemalloc instead of the system allocator (mem-growth branch). Measured with 50 databases at 2 writes/s on MinIO: glibc's
+/// malloc held ~5.5 KB of RSS per write for ~1.5 KB of live heap and gave nothing back when the databases closed;
+/// jemalloc held ~1.9 KB per write. `background_thread` returns freed pages to the system while the process is idle
+/// (without it, pages were only purged by later allocations).
+#[global_allocator]
+static GLOBAL: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
+
+#[allow(non_upper_case_globals)]
+#[export_name = "_rjem_malloc_conf"]
+pub static malloc_conf: &[u8] = b"background_thread:true\0";
+
 mod agg;
 mod auth;
 mod authz;
@@ -169,6 +180,22 @@ struct Args {
     /// part E). 0 = slatedb's default.
     #[arg(long, default_value_t = 8)]
     memtable_max_mb: u64,
+    /// A writer flushes its memtable to an L0 SST once its oldest unflushed write is this old, in seconds (0 = only when the
+    /// memtable is full or after slatedb's 4096 WAL flushes). Measured (mem-growth branch, 50 databases at 2 writes/s): the
+    /// memtables of slowly written databases were most of the memory that grew with the writes. A database written fast
+    /// fills its memtable before this age and is not affected; a slow one gets at most one more L0 SST per interval.
+    #[arg(long, default_value_t = 600)]
+    memtable_max_age_secs: u64,
+    /// Also keep the data blocks of the L0 SSTs a writer flushes in the shared block cache (slatedb's default). Off: those
+    /// blocks filled the cache with data nobody had read and, after the database closed, could never be read again (new
+    /// cache scope per open). Blocks are still cached when read.
+    #[arg(long, default_value_t = false, action = clap::ArgAction::Set)]
+    cache_flushed_blocks: bool,
+    /// A cursor (find, aggregate, tailable, change stream) that no getMore used for this long is closed and its buffered
+    /// results freed, as mongod's `cursorTimeoutMillis` (10 minutes). Before, an abandoned cursor stayed until the process
+    /// stopped. 0 = never.
+    #[arg(long, default_value_t = 600)]
+    cursor_timeout_secs: u64,
     /// One block cache shared by every open database, in MiB (slatedb's default is a 512 MiB cache per open database, with no
     /// limit across databases: the memory then grew with the data read by each database).
     #[arg(long, default_value_t = 256)]
@@ -406,7 +433,36 @@ async fn handle_connection_inner(server: &Arc<Server>, stream: tls::Stream, conn
     }
 }
 
+/// Measurement builds (`--features heap-prof`): every `HEAP_PROF_DUMP_SECS` seconds, print jemalloc's live heap
+/// (`allocated`) next to what the allocator holds (`resident`) and, with `prof:true`, write a heap profile
+/// (`HEAP_PROF_PREFIX.N.heap`) for `jeprof --base`.
+#[cfg(feature = "heap-prof")]
+fn heap_prof_thread() {
+    let Some(secs) = std::env::var("HEAP_PROF_DUMP_SECS").ok().and_then(|v| v.parse::<u64>().ok()) else { return };
+    let prefix = std::env::var("HEAP_PROF_PREFIX").unwrap_or_else(|_| "/tmp/heap".into());
+    std::thread::spawn(move || {
+        for n in 0u64.. {
+            std::thread::sleep(std::time::Duration::from_secs(secs));
+            let (a, r) = heap_stats();
+            eprintln!("HEAPPROF n={n} allocated={a} resident={r}");
+            let path = std::ffi::CString::new(format!("{prefix}.{n:04}.heap")).unwrap();
+            unsafe {
+                let _ = tikv_jemalloc_ctl::raw::write(b"prof.dump\0", path.as_ptr());
+            }
+        }
+    });
+}
+
+/// jemalloc's live heap (`stats.allocated`) and the memory it holds (`stats.resident`), in bytes.
+pub(crate) fn heap_stats() -> (u64, u64) {
+    use tikv_jemalloc_ctl::{epoch, stats};
+    let _ = epoch::advance();
+    (stats::allocated::read().unwrap_or(0) as u64, stats::resident::read().unwrap_or(0) as u64)
+}
+
 fn main() -> Result<()> {
+    #[cfg(feature = "heap-prof")]
+    heap_prof_thread();
     // The futures of the command handlers are large: the workers get stacks that are not the 2 MiB default.
     tokio::runtime::Builder::new_multi_thread().enable_all().thread_stack_size(64 << 20).build()?.block_on(run())
 }
@@ -462,6 +518,9 @@ async fn run() -> Result<()> {
         tenant_bench::lifecycle::install_shared_cache(args.block_cache_mb << 20, args.meta_cache_mb << 20);
     }
     changes::MAX_BYTES.store(args.change_log_max_mb << 20, std::sync::atomic::Ordering::Relaxed);
+    tenant_bench::lifecycle::MEMTABLE_MAX_AGE_SECS.store(args.memtable_max_age_secs, std::sync::atomic::Ordering::Relaxed);
+    tenant_bench::lifecycle::CACHE_FLUSHED_BLOCKS.store(args.cache_flushed_blocks, std::sync::atomic::Ordering::Relaxed);
+    cmd::CURSOR_TIMEOUT_SECS.store(args.cursor_timeout_secs, std::sync::atomic::Ordering::Relaxed);
     ctl::durability::install(args.relaxed_flush_ms)?;
     fair::install(args.fair_lag_ms, args.db_max_inflight, args.db_max_rate, args.fair_max_inflight);
     let local_log_old = if args.local_log_dir.is_empty() { None } else { Some(locallog::install(&args.local_log_dir, args.local_log_upload_secs)?) };

@@ -34,7 +34,20 @@ pub struct Server {
     pub(crate) diag: crate::diag::Diag,
 }
 
+/// Idle time after which a cursor is closed (`--cursor-timeout-secs`, mongod's `cursorTimeoutMillis`; 0 = never).
+pub static CURSOR_TIMEOUT_SECS: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(600);
+/// Cursors closed because they were idle (serverStatus `metrics.cursor.timedOut`).
+pub static CURSORS_TIMED_OUT: std::sync::atomic::AtomicU64 = std::sync::atomic::AtomicU64::new(0);
+
+/// Idle time after which a `noCursorTimeout` cursor is closed anyway: mongod ties such a cursor to its logical session, which
+/// expires after 30 minutes without use.
+const NO_TIMEOUT_CURSOR_SECS: u64 = 30 * 60;
+
 struct Cursor {
+    /// Last time the cursor was created or used by a getMore.
+    used: std::time::Instant,
+    /// Opened with `noCursorTimeout`: closed after `NO_TIMEOUT_CURSOR_SECS` idle instead of `CURSOR_TIMEOUT_SECS`.
+    no_timeout: bool,
     ns: String,
     docs: VecDeque<Document>,
     /// A tailable cursor: where it stands in its capped collection.
@@ -95,7 +108,52 @@ fn is_write_command(name: &str) -> bool {
 
 impl Server {
     pub fn new(dbs: Arc<Dbs>, log_commands: bool) -> Arc<Self> {
-        Arc::new(Self { dbs, builds: Arc::new(Mutex::new(HashSet::new())), sessions: Default::default(), next_txn_id: std::sync::atomic::AtomicU64::new(1), rs: Mutex::new(None), log_commands, cursors: Mutex::new(HashMap::new()), change_cursors: Mutex::new(HashMap::new()), next_conn: AtomicI64::new(1), auth: Default::default(), retry: Default::default(), diag: Default::default() })
+        let s = Arc::new(Self { dbs, builds: Arc::new(Mutex::new(HashSet::new())), sessions: Default::default(), next_txn_id: std::sync::atomic::AtomicU64::new(1), rs: Mutex::new(None), log_commands, cursors: Mutex::new(HashMap::new()), change_cursors: Mutex::new(HashMap::new()), next_conn: AtomicI64::new(1), auth: Default::default(), retry: Default::default(), diag: Default::default() });
+        // Close idle cursors (see `CURSOR_TIMEOUT_SECS`): a cursor keeps the rest of its results in memory, and a client that
+        // stops reading (or dies) without killCursors used to leave them there until the process stopped.
+        if let Ok(h) = tokio::runtime::Handle::try_current() {
+            let w = Arc::downgrade(&s);
+            h.spawn(async move {
+                loop {
+                    tokio::time::sleep(std::time::Duration::from_secs(10)).await;
+                    let Some(s) = w.upgrade() else { break };
+                    s.expire_idle_cursors();
+                }
+            });
+        }
+        s
+    }
+
+    /// The cursor of a `find` reply was opened with `noCursorTimeout`.
+    pub(crate) fn mark_no_cursor_timeout(&self, reply: &Document) {
+        if let Ok(id) = reply.get_document("cursor").and_then(|c| c.get_i64("id")) {
+            if let Some(c) = self.cursors.lock().unwrap().get_mut(&id) {
+                c.no_timeout = true;
+            }
+        }
+    }
+
+    /// Close the cursors that no getMore used for `CURSOR_TIMEOUT_SECS`. Returns how many were closed.
+    pub(crate) fn expire_idle_cursors(&self) -> usize {
+        let secs = CURSOR_TIMEOUT_SECS.load(std::sync::atomic::Ordering::Relaxed);
+        if secs == 0 {
+            return 0;
+        }
+        let max = std::time::Duration::from_secs(secs);
+        let max_no_timeout = std::time::Duration::from_secs(secs.max(NO_TIMEOUT_CURSOR_SECS));
+        let mut n = 0;
+        self.cursors.lock().unwrap().retain(|_, c| {
+            let keep = c.used.elapsed() < if c.no_timeout { max_no_timeout } else { max };
+            n += usize::from(!keep);
+            keep
+        });
+        self.change_cursors.lock().unwrap().retain(|_, c| {
+            let keep = c.used.elapsed() < max;
+            n += usize::from(!keep);
+            keep
+        });
+        CURSORS_TIMED_OUT.fetch_add(n as u64, std::sync::atomic::Ordering::Relaxed);
+        n
     }
 
     pub fn new_connection_id(&self) -> i64 {
@@ -796,7 +854,7 @@ impl Server {
                 break id;
             }
         };
-        c.insert(id, Cursor { ns: ns.clone(), docs: VecDeque::new(), tail: Some(tail) });
+        c.insert(id, Cursor { used: std::time::Instant::now(), no_timeout: false, ns: ns.clone(), docs: VecDeque::new(), tail: Some(tail) });
         doc! { "cursor": { "firstBatch": first.into_iter().map(Bson::Document).collect::<Vec<_>>(), "id": id, "ns": ns }, "ok": 1.0 }
     }
 
@@ -805,7 +863,7 @@ impl Server {
         loop {
             let id = (rand::random::<i64>() & i64::MAX) | (1 << 40);
             if !c.contains_key(&id) {
-                c.insert(id, Cursor { ns, docs, tail: None });
+                c.insert(id, Cursor { used: std::time::Instant::now(), no_timeout: false, ns, docs, tail: None });
                 return id;
             }
         }
@@ -840,6 +898,7 @@ impl Server {
         }
         let mut cursors = self.cursors.lock().unwrap();
         let c = cursors.get_mut(&id).ok_or_else(|| MongoError::cursor_not_found(id))?;
+        c.used = std::time::Instant::now();
         let n = batch.unwrap_or(usize::MAX).min(c.docs.len());
         let next: Vec<Bson> = c.docs.drain(..n).map(Bson::Document).collect();
         let ns = c.ns.clone();
@@ -877,7 +936,10 @@ impl Server {
             if !docs.is_empty() || !cur.await_data || std::time::Instant::now() >= deadline {
                 let ns = format!("{}.{}", cur.db, cur.coll);
                 match self.cursors.lock().unwrap().get_mut(&id) {
-                    Some(c) => c.tail = Some(cur),
+                    Some(c) => {
+                        c.tail = Some(cur);
+                        c.used = std::time::Instant::now();
+                    }
                     None => return Err(MongoError::cursor_not_found(id)),
                 }
                 return Ok(doc! { "cursor": { "nextBatch": docs.into_iter().map(Bson::Document).collect::<Vec<_>>(), "id": id, "ns": ns }, "ok": 1.0 });

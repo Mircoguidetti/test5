@@ -638,6 +638,12 @@ impl Server {
         set_path(&mut d, "metrics.commands", Bson::Document(cm));
         let open = self.cursors_open() as i64;
         set_path(&mut d, "metrics.cursor.open.total", Bson::Int64(open));
+        set_path(&mut d, "metrics.cursor.timedOut", Bson::Int64(crate::cmd::CURSORS_TIMED_OUT.load(Relaxed) as i64));
+        // Live heap and what the allocator holds (jemalloc), and the memtable flushes started by age (mem-growth branch).
+        let (alloc, resident) = crate::heap_stats();
+        set_path(&mut d, "mem.heapAllocatedBytes", Bson::Int64(alloc as i64));
+        set_path(&mut d, "mem.heapResidentBytes", Bson::Int64(resident as i64));
+        set_path(&mut d, "mem.memtableAgeFlushes", Bson::Int64(tenant_bench::lifecycle::MEMTABLE_AGE_FLUSHES.load(Relaxed) as i64));
         set_path(&mut d, "mem.bits", Bson::Int32(64));
         if let Ok(s) = std::fs::read_to_string("/proc/self/statm") {
             let mut it = s.split_whitespace().filter_map(|x| x.parse::<i64>().ok());
